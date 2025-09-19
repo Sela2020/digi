@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executive Booking Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        .officer-card {
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+        .officer-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            bottom: -8px;
+            left: 0;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-radius: 2px;
+        }
+        .booking-modal {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .booking-modal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .booking-modal.hide {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h1 class="text-3xl font-bold text-gray-800">Executive Booking Portal</h1>
+                    <p class="text-gray-600 mt-1">Schedule meetings with our leadership team</p>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <i data-feather="calendar" class="text-blue-500"></i>
+                    <i data-feather="user" class="text-purple-500"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        <!-- CEO Section -->
+        <section class="mb-20" data-aos="fade-up">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-8 section-title">Chief Executive Officers</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- CEO 1 -->
+                <div class="officer-card bg-white rounded-xl p-6 shadow-md cursor-pointer" 
+                     onclick="openBooking('https://outlook.office.com/bookwithme/user/ceo1@company.com')">
+                    <div class="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
+                        <img src="https://moc.gov.gh/wp-content/uploads/2023/03/PHOTO-2025-02-07-17-56-51.jpg" alt="CEO 1" class="w-24 h-24 rounded-full object-cover border-4 border-blue-100">
+                        <div class="text-center md:text-left">
+                            <h3 class="text-xl font-bold text-gray-800">Hon. Samuel Nartey George (MP)</h3>
+                            <p class="text-blue-600 font-medium"> Minister for Communication, Digital Technology and Innovations</p>
+                            <p class="text-gray-600 mt-2">With over 20 years of industry experience, John leads our company vision and strategic direction.</p>
+                            <button class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition flex items-center mx-auto md:mx-0">
+                                <i data-feather="calendar" class="mr-2"></i> Book Meeting
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CEO 2 -->
+                <div class="officer-card bg-white rounded-xl p-6 shadow-md cursor-pointer" 
+                     onclick="openBooking('https://outlook.office.com/bookwithme/user/ceo2@company.com')">
+                    <div class="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
+                        <img src="https://moc.gov.gh/wp-content/uploads/2025/09/Deputy-Minister-1-e1756980447971.jpg" alt="CEO 2" class="w-24 h-24 rounded-full object-cover border-4 border-blue-100">
+                        <div class="text-center md:text-left">
+                            <h3 class="text-xl font-bold text-gray-800">Hon. Mohammed Adams Sukparu (MP)</h3>
+                            <p class="text-blue-600 font-medium">Deputy Minister</p>
+                            <p class="text-gray-600 mt-2">Sarah oversees daily operations and ensures our company runs smoothly and efficiently.</p>
+                            <button class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition flex items-center mx-auto md:mx-0">
+                                <i data-feather="calendar" class="mr-2"></i> Book Meeting
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Directors Section -->
+        <section data-aos="fade-up" data-aos-delay="100">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-8 section-title">Executive Directors</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Director 1 -->
+                <div class="officer-card bg-white rounded-xl p-6 shadow-md cursor-pointer" 
+                     onclick="openBooking('https://outlook.office.com/bookwithme/user/df1daab6383a4b94ad9b84091290e469@moc.gov.gh?anonymous&ismsaljsauthenabled&ep=plink')">
+                    <div class="flex flex-col items-center text-center">
+                        <img src="https://moc.gov.gh/wp-content/uploads/2023/03/Director-size.jpg" alt="Director 2" class="w-20 h-20 rounded-full object-cover border-4 border-purple-100 mb-4">
+                        <h3 class="text-lg font-bold text-gray-800">Mr. Alexander Yaw Arphul</h3>
+                        <p class="text-purple-600 font-medium">Chief Director</p>
+                        <p class="text-gray-600 mt-2 text-sm">Oversees brand strategy and customer acquisition.</p>
+                    </div>
+                </div>
+
+                <!-- Director 2-->
+                <div class="officer-card bg-white rounded-xl p-6 shadow-md cursor-pointer" 
+                     onclick="openBooking('https://outlook.office.com/bookwithme/user/director1@company.com')">
+                    <div class="flex flex-col items-center text-center">
+                        <img src="http://static.photos/office/320x240/201" alt="Director 1" class="w-20 h-20 rounded-full object-cover border-4 border-purple-100 mb-4">
+                        <h3 class="text-lg font-bold text-gray-800">Mrs. Sylvia Amoro</h3>
+                        <p class="text-purple-600 font-medium">Director, Finance</p>
+                        <p class="text-gray-600 mt-2 text-sm">Leads our engineering teams and technology roadmap.</p>
+                    </div>
+                </div>
+
+
+
+                <!-- Director 3 -->
+                <div class="officer-card bg-white rounded-xl p-6 shadow-md cursor-pointer" 
+                     onclick="openBooking('https://outlook.office.com/bookwithme/user/director3@company.com')">
+                    <div class="flex flex-col items-center text-center">
+                        <img src="https://moc.gov.gh/wp-content/uploads/2023/03/HRM-1.jpg" alt="Director 3" class="w-20 h-20 rounded-full object-cover border-4 border-purple-100 mb-4">
+                        <h3 class="text-lg font-bold text-gray-800">Mr. Joseph Tetteh</h3>
+                        <p class="text-purple-600 font-medium">Director, Human Resource Management (HRM)</p>
+                        <p class="text-gray-600 mt-2 text-sm">Manages financial planning and investment strategies.</p>
+                    </div>
+                </div>
+
+                <!-- Director 4 -->
+                <div class="officer-card bg-white rounded-xl p-6 shadow-md cursor-pointer" 
+                     onclick="openBooking('https://outlook.office.com/bookwithme/user/director4@company.com')">
+                    <div class="flex flex-col items-center text-center">
+                        <img src="https://moc.gov.gh/wp-content/uploads/2023/03/Mr.-Nortey.jpg" alt="Director 4" class="w-20 h-20 rounded-full object-cover border-4 border-purple-100 mb-4">
+                        <h3 class="text-lg font-bold text-gray-800">Mr. Alfred Nortey</h3>
+                        <p class="text-purple-600 font-medium">Director, General Administration</p>
+                        <p class="text-gray-600 mt-2 text-sm">Leads talent acquisition and employee development.</p>
+                    </div>
+                </div>
+
+                <!-- Director 5 -->
+                <div class="officer-card bg-white rounded-xl p-6 shadow-md cursor-pointer" 
+                     onclick="openBooking('https://outlook.office.com/bookwithme/user/director5@company.com')">
+                    <div class="flex flex-col items-center text-center">
+                        <img src="https://moc.gov.gh/wp-content/uploads/2023/03/Director-IT.jpg" alt="Director 5" class="w-20 h-20 rounded-full object-cover border-4 border-purple-100 mb-4">
+                        <h3 class="text-lg font-bold text-gray-800">Dr. Samuel Antwi-Gyekyi</h3>
+                        <p class="text-purple-600 font-medium">Director, Digital Technology</p>
+                        <p class="text-gray-600 mt-2 text-sm">Oversees revenue growth and client relationships.</p>
+                    </div>
+                </div>
+
+                <!-- Director 6 -->
+                <div class="officer-card bg-white rounded-xl p-6 shadow-md cursor-pointer" 
+                     onclick="openBooking('https://outlook.office.com/bookwithme/user/director6@company.com')">
+                    <div class="flex flex-col items-center text-center">
+                        <img src="https://moc.gov.gh/wp-content/uploads/2023/03/PPBME-1.jpg" alt="Director 6" class="w-20 h-20 rounded-full object-cover border-4 border-purple-100 mb-4">
+                        <h3 class="text-lg font-bold text-gray-800">Mr. Austin Hesse</h3>
+                        <p class="text-purple-600 font-medium">Director - Policy Planning, Budgeting, Monitoring and Evaluation (PPBME)</p>
+                        <p class="text-gray-600 mt-2 text-sm">Leads product vision and development lifecycle.</p>
+                    </div>
+                </div>
+
+                <!-- Director 7 -->
+                <div class="officer-card bg-white rounded-xl p-6 shadow-md cursor-pointer" 
+                     onclick="openBooking('https://outlook.office.com/bookwithme/user/director7@company.com')">
+                    <div class="flex flex-col items-center text-center">
+                        <img src="https://moc.gov.gh/wp-content/uploads/2023/03/RSIM-1.jpg" alt="Director 7" class="w-20 h-20 rounded-full object-cover border-4 border-purple-100 mb-4">
+                        <h3 class="text-lg font-bold text-gray-800">Barbara Phyllis Barnes</h3>
+                        <p class="text-purple-600 font-medium">Director, RSIM</p>
+                        <p class="text-gray-600 mt-2 text-sm">Ensures operational excellence across departments.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h2 class="text-xl font-bold">Executive Booking Portal</h2>
+                    <p class="text-gray-400 mt-1">Connect with our leadership team</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i data-feather="help-circle"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i data-feather="mail"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i data-feather="phone"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-6 pt-6 text-center text-gray-400 text-sm">
+                <p>© 2023 Company Name. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Booking Modal (hidden by default) -->
+    <div id="bookingModal" class="booking-modal fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 opacity-0 pointer-events-none">
+        <div class="bg-white rounded-xl p-8 max-w-md w-full mx-4">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-bold text-gray-800">Redirecting to Booking</h3>
+                <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700">
+                    <i data-feather="x"></i>
+                </button>
+            </div>
+            <p class="text-gray-600 mb-6">You're being redirected to Microsoft Booking to schedule your meeting. Please wait...</p>
+            <div class="flex justify-center">
+                <div class="animate-spin">
+                    <i data-feather="loader" class="text-blue-500"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize animations and icons
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        feather.replace();
+
+        // Open booking link with smooth transition
+        function openBooking(url) {
+            const modal = document.getElementById('bookingModal');
+            modal.classList.remove('hide');
+            modal.classList.add('show');
+            modal.classList.remove('pointer-events-none');
+            
+            setTimeout(() => {
+                window.open(url, '_blank');
+                closeModal();
+            }, 1500);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('bookingModal');
+            modal.classList.remove('show');
+            modal.classList.add('hide');
+            setTimeout(() => {
+                modal.classList.add('pointer-events-none');
+            }, 300);
+        }
+    </script>
+</body>
+</html>
